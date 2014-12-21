@@ -1,23 +1,48 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+#Contract
+{
+	height:200px;
+	font-size:12pt;
+}
+
+#ParseButton
+{
+	height:50px;
+	width:100px;
+}
+</style>
+
+</head>
+
+
 <body>
 
 <h1>OpenBazaar Contract Parser</h1>
 
-<p><b>This is how the Contract Parser works:</b> Paste in your raw JSON-formatted contract in here, and the JS will do the rest!</p>
+<h3><b>This is how the Contract Parser works:</b></h3> 
+<p>Paste in your raw JSON-formatted contract in here, and the JS will do the rest!</p>
 
-<input id="Contract" type="text"></input>
-<button onclick="ParseContract()"></button>
+<input id="Contract" type="text" size="35" ></input>
+</br>
+</br>
+<button id="ParseButton" onclick="ParseContract()">Import</button>
 
-<p id="parsethis"></p>
+<p id="parseDump"></p>
 
 <script>
 function ParseContract() {
 	var varContract = document.getElementById("Contract").value;
 	var obj = JSON.parse(varContract)
 
-	document.getElementById("parsethis").innerHTML = 
-	obj.name;
+	document.getElementById("parseDump").innerHTML = 
+	"<b>First Name: </b>" + obj.firstname + "<br>" +
+	"<b>Last Name: </b>" + obj.lastname + "<br>" +
+	"<b>Home: </b>" + obj.home + "<br>" +
+	"<b>Phone number: </b>" + obj.phone + "<br>" +
+	"<b>Country: </b>" + obj.country;
 }
 </script>
 

@@ -9,6 +9,14 @@ OpenBazaar Contract Parser
 + Future features:
   + Validate digital signatures
 
+## How to use
+
+1. Copy the raw JSON-formatted Ricardian contract from the OpenBazaar client (see note above)
+2. Paste contract into the text area
+3. Press Import
+
+**Included in the repo is a text file with an example contract that is compatible with this tool... again, see the note above.**
+
 ## Screenshots
 
 ![0](http://s2.postimg.org/m3ycweml5/Screenshot1.jpg)

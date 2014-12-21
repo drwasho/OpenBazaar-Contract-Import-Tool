@@ -50,22 +50,42 @@ function ParseContract() {
 	
 	document.getElementById("parseDump2").innerHTML = 
 	"<h3>Genesis Part</h3>" +
-	"<h4>Metadata:</h4>" + 
-		"<b>OpenBazaar Contract Version: </b>" + obj.GenesisPart.metadata.OBCv + "<br>" +
-		"<b>Category: </b>" + obj.GenesisPart.metadata.Category + "<br>" +
-		"<b>Sub-category: </b>" + obj.GenesisPart.metadata.subCategory + "<br>" +
-		"<b>Expiration Date: </b>" + obj.GenesisPart.metadata.Expiration_Date + "<br>" + "<br>" +
-	"<h4>Item: </h4>" + 
-		"<b>Title: </b>" + obj.GenesisPart.item_data.item_title + "<br>" + 
-		"<b>Bitcoin Price: </b>" + obj.GenesisPart.item_data.btcprice + "<br>" + 
-		"<b>Fiat Price: </b>" + obj.GenesisPart.item_data.fiatprice + "<br>" + 
-		"<b>Image: </b>" + obj.GenesisPart.item_data.item_image + "<br>" + 
-		"<b>Condition: </b>" + obj.GenesisPart.item_data.item_condition + "<br>" + 
-		"<b>Quantity: </b>" + obj.GenesisPart.item_data.quantity + "<br>" + 
-		"<b>Keywords: </b>" + obj.GenesisPart.item_data.keywords.join(", ") + "<br>" + 
-		"<b>Region Available: </b>" + obj.GenesisPart.item_data.region + "<br>" + 
-		"<b>Estimated Delivery: </b>" + obj.GenesisPart.item_data.est_delivery + "<br>" + 
-		"<b>Shipping Fee: </b>" + obj.GenesisPart.item_data.shipping_fee + "<br>"	
+		"<h4>Metadata:</h4>" + 
+			"<b>OpenBazaar Contract Version: </b>" + obj.GenesisPart.metadata.OBCv + "<br>" +
+			"<b>Category: </b>" + obj.GenesisPart.metadata.Category + "<br>" +
+			"<b>Sub-category: </b>" + obj.GenesisPart.metadata.subCategory + "<br>" +
+			"<b>Expiration Date: </b>" + obj.GenesisPart.metadata.Expiration_Date + "<br>" + "<br>" +
+		"<h4>Item: </h4>" + 
+			"<b>Title: </b>" + obj.GenesisPart.item_data.item_title + "<br>" + 
+			"<b>Bitcoin Price: </b>" + obj.GenesisPart.item_data.btcprice + "<br>" + 
+			"<b>Fiat Price: </b>" + obj.GenesisPart.item_data.fiatprice + "<br>" + 
+			"<b>Image: </b>" + obj.GenesisPart.item_data.item_image + "<br>" + 
+			"<b>Condition: </b>" + obj.GenesisPart.item_data.item_condition + "<br>" + 
+			"<b>Quantity: </b>" + obj.GenesisPart.item_data.quantity + "<br>" + 
+			"<b>Keywords: </b>" + obj.GenesisPart.item_data.keywords.join(", ") + "<br>" + 
+			"<b>Region Available: </b>" + obj.GenesisPart.item_data.region + "<br>" + 
+			"<b>Estimated Delivery: </b>" + obj.GenesisPart.item_data.est_delivery + "<br>" + 
+			"<b>Shipping Fee: </b>" + obj.GenesisPart.item_data.shipping_fee + "<br><br>" +
+	"<h3>Merchant Part</h3>" +
+		"<h4>Merchant ID:</h4>" + 
+			"<b>Merchant GUID: </b>" + obj.MerchantPart.Merchant_ID + "<br>" +
+			"<b>Contract Part Hash: </b>" + obj.MerchantPart.signatures.Hash + "<br>" +
+			"<b>GPG: </b>" + obj.MerchantPart.signatures.GPG + "<br>" +
+			"<b>secp256k1: </b>" + obj.MerchantPart.signatures.secp256k1 + "<br>" + "<br><br>" +
+	"<h3>Buyer Part</h3>" +
+		"<h4>Buyer ID:</h4>" + 
+			"<b>Buyer GUID: </b>" + obj.BuyerPart.Buyer_ID + "<br>" +
+			"<b>Contract Part Hash: </b>" + obj.BuyerPart.signatures.Hash + "<br>" +
+			"<b>GPG: </b>" + obj.BuyerPart.signatures.GPG + "<br>" +
+			"<b>secp256k1: </b>" + obj.BuyerPart.signatures.secp256k1 + "<br>" + "<br><br>" +
+	"<h3>Notary Part</h3>" +
+		"<h4>Notary ID:</h4>" + 
+			"<b>Notary GUID: </b>" + obj.NotaryPart.Notary_ID + "<br>" +
+			"<b>Contract Part Hash: </b>" + obj.NotaryPart.signatures.Hash + "<br>" +
+			"<b>GPG: </b>" + obj.NotaryPart.signatures.GPG + "<br>" +
+			"<b>secp256k1: </b>" + obj.NotaryPart.signatures.secp256k1 + "<br>" + 
+			"<b>Escrow Multisignature Adress: </b>" + obj.NotaryPart.escrow_address + "<br>" + 
+			"<b>Escrow Multisignature Redemption Script: </b>" + obj.NotaryPart.escrow_redemption_address + "<br><br>"
 	;
 }
 </script>

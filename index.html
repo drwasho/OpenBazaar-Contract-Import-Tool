@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>OpenBazaar Contract Parser</h1>
+
+<p><b>This is how the Contract Parser works:</b> Paste in your raw JSON-formatted contract in here, and the JS will do the rest!</p>
+
+<input id="Contract" type="text"></input>
+<button onclick="ParseContract()"></button>
+
+<p id="parsethis"></p>
+
+<script>
+function ParseContract() {
+	var varContract = document.getElementById("Contract").value;
+	var obj = JSON.parse(varContract)
+
+	document.getElementById("parsethis").innerHTML = 
+	obj.name;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+	"firstname":"Washington",
+	"lastname":"Sanchez",
+	"home":"Brisbane",
+	"phone":"123456",
+	"country":"Australia"
+	}

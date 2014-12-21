@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <style>
 #Contract
 {
@@ -14,37 +16,64 @@
 	width:100px;
 }
 </style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenBazaar Contract Parser</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 
 <body>
-
+<div class="container">
 <h1>OpenBazaar Contract Parser</h1>
-
 <h3><b>This is how the Contract Parser works:</b></h3> 
 <p>Paste in your raw JSON-formatted contract in here, and the JS will do the rest!</p>
+</div>
 
-<input id="Contract" type="text" size="35" ></input>
-</br>
+<div class="container">
+<textarea rows='12' class="form-control"  name="raw_contract" id="raw_contract"></textarea>
+
 </br>
 <button id="ParseButton" onclick="ParseContract()">Import</button>
-
-<p id="parseDump"></p>
+</br>
+</br>
+<p id="parseDump2"></p>
+</div>
+</div>
 
 <script>
 function ParseContract() {
-	var varContract = document.getElementById("Contract").value;
-	var obj = JSON.parse(varContract)
-
-	document.getElementById("parseDump").innerHTML = 
-	"<b>First Name: </b>" + obj.firstname + "<br>" +
-	"<b>Last Name: </b>" + obj.lastname + "<br>" +
-	"<b>Home: </b>" + obj.home + "<br>" +
-	"<b>Phone number: </b>" + obj.phone + "<br>" +
-	"<b>Country: </b>" + obj.country;
+	var varContract = document.getElementById("raw_contract").value;
+	var obj = JSON.parse(varContract);
+	
+	document.getElementById("parseDump2").innerHTML = 
+	"<h3>Genesis Part</h3>" +
+	"<h4>Metadata:</h4>" + 
+		"<b>OpenBazaar Contract Version: </b>" + obj.GenesisPart.metadata.OBCv + "<br>" +
+		"<b>Category: </b>" + obj.GenesisPart.metadata.Category + "<br>" +
+		"<b>Sub-category: </b>" + obj.GenesisPart.metadata.subCategory + "<br>" +
+		"<b>Expiration Date: </b>" + obj.GenesisPart.metadata.Expiration_Date + "<br>" + "<br>" +
+	"<h4>Item: </h4>" + 
+		"<b>Title: </b>" + obj.GenesisPart.item_data.item_title + "<br>" + 
+		"<b>Bitcoin Price: </b>" + obj.GenesisPart.item_data.btcprice + "<br>" + 
+		"<b>Fiat Price: </b>" + obj.GenesisPart.item_data.fiatprice + "<br>" + 
+		"<b>Image: </b>" + obj.GenesisPart.item_data.item_image + "<br>" + 
+		"<b>Condition: </b>" + obj.GenesisPart.item_data.item_condition + "<br>" + 
+		"<b>Quantity: </b>" + obj.GenesisPart.item_data.quantity + "<br>" + 
+		"<b>Keywords: </b>" + obj.GenesisPart.item_data.keywords.join(", ") + "<br>" + 
+		"<b>Region Available: </b>" + obj.GenesisPart.item_data.region + "<br>" + 
+		"<b>Estimated Delivery: </b>" + obj.GenesisPart.item_data.est_delivery + "<br>" + 
+		"<b>Shipping Fee: </b>" + obj.GenesisPart.item_data.shipping_fee + "<br>"	
+	;
 }
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

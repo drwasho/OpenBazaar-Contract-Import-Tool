@@ -1,7 +1,52 @@
 {
-	"firstname":"Washington",
-	"lastname":"Sanchez",
-	"home":"Brisbane",
-	"phone":"123456",
-	"country":"Australia"
-	}
+    "GenesisPart": {
+        "metadata": {
+            "OBCv": "0.0.1",
+            "Category": "some category",
+            "subCategory": "some subCategory",
+            "Expiration_Date": "MM/DD/YYY"
+        },
+        "nonce": "somehashOfthis1contracT",
+        "item_data": {
+            "item_title": "some product",
+            "btcprice": "0.01",
+            "fiatprice": "$10",
+            "item_image": "someBase64imageHash",
+            "item_condition": "some condition",
+            "quantity": "some amount",
+            "keywords": [
+                "some",
+                "keywords"
+            ],
+            "region": "some place",
+            "est_delivery": "eventually",
+            "shipping_fee": "none"
+        }
+    },
+    "MerchantPart": {
+        "Merchant_ID": "some_seller",
+        "signatures": {
+            "Hash": "somehash12345",
+            "GPG": "*************",
+            "secp256k1": "someuncompressedPubKey"
+        }
+    },
+    "BuyerPart": {
+        "Buyer_ID": "some_seller",
+        "signatures": {
+            "Hash": "somehash12345",
+            "GPG": "*************",
+            "secp256k1": "someuncompressedPubKey"
+        }
+    },
+    "NotaryPart": {
+        "Notary_ID": "some_seller",
+        "signatures": {
+            "Hash": "somehash12345",
+            "GPG": "*************",
+            "secp256k1": "someuncompressedPubKey"
+        },
+        "escrow_address": "somemultisigEscrowaddRess1234",
+        "escrow_redemption_address": "abc123432"
+    }
+}

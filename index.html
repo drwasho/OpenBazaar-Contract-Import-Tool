@@ -20,6 +20,10 @@
     <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
 
+	<script>
+		$('.btn-tooltip').tooltip();
+	</script>
+
 </head>
 
 <!--     #########################################################################################     -->
@@ -61,14 +65,13 @@
 		<div class="container">
 			<h1>OpenBazaar Contract Parser</h1>
 			<h3><b>This is how the Contract Parser works:</b></h3> 
-			<p>Paste in your raw JSON-formatted contract in here, and the JS will do the rest!</p>
+			<p>Paste in your raw JSON-formatted contract below, press 'Import', and the JS will do the rest!</p>
 		</div>
 
 		<div class="container">
 			
 			<!--     Text area we paste the contract in     -->
 			<textarea rows='12' class="form-control"  name="raw_contract" id="raw_contract"></textarea>
-			</br>
 			
 			<!--     Buttons     -->
 			<div class="row tim-row" id="display-buttons" data-class="btn-info">
@@ -76,21 +79,82 @@
 	                <button type="button" class="btn btn-primary" id="TryButton" onclick="TryContract()">Example</button>
 	            </div>
 	            <div class="col-md-1">
-	                <button type="button" class="btn btn-primary" id="ParseButton" onclick="ParseContract()">Import</button>
+	                <button type="button" class="btn btn-primary btn-tooltip" data-toggle="tooltip" data-placement="bottom" title="Converts scary JSON into something beautiful" id="ParseButton" onclick="ParseContract()">Import</button>
 	            </div>
 	        </div>
-			
+	        <button type="button" class="btn btn-primary" id="ModalPop" onclick="">Modal test</button>
 			</br>
 			</br>
+			<hr class="featurette-divider">
 			
 			<!--     Where the javascript outputs goes     -->
+			<div class="row">
+				<div class="col-md-8">
+					<h1 id="itemTitle">Item Title</h1>
+				</div>
+			</br>
+			<div class="row">
+				<div class="col-md-6">
+                    <h4>Image</h4>
+                    <img src="assets/img/obcatlogo.png" alt="Circle Image" class="img-thumbnail" width="400px">
+                </div>
+                <div class="col-md-6">
+                	<h4>Description</h4>
+                	<p id="itemDescription"></p>
+               	</div>
+			</div>
 			<p id="parseDump2"></p>
 			<p id="parseDump3"></p>
-
+			<div class="space-30"></div>
 		</div>
 	</div>
 
+
+	<div class="parallax-pro">
+   	 
+	   	<img src="assets/img/background1.jpg">
+	    
+	    <div class="container">
+	        
+	        <div class="row">
+	            <div class="col-md-12 text-center">
+	                <h1>
+	                    <small>
+	                        Our Project:<a>
+	                    </a></small><a>
+	                </a></h1><a>
+	            </a></div><a>
+
+	            </a><div class="col-md-6 col-md-offset-3 text-center"><a>
+	                </a><h1 class="hello text-center"><a>
+	                   </a><a href="https://openbazaar.org">OpenBazaar</a>
+	                   <small>
+	                    <ul class="list-unstyled">
+	                        <li><a href="https://github.com/OpenBazaar/OpenBazaar">Github</a</li>
+	                        <li><a href="https://blog.openbazaar.org">Blog</a></li>
+	                        <li><a href="https://tip4commit.com/github/OpenBazaar/OpenBazaar">Tip4Commit</a></li>
+	                        <li><a href="mailto:project@openbazaar.org">Email</a></li>
+	                    </ul>
+	                    </small>
+	                </h1>
+	            </div>
+	        </div>
+	        
+
+	       
+	        <div class="row">
+	             <div class="col-md-12 text-center">
+	                <div class="credits">
+	                    Website made using Get S*** Done Kit by <a href="http://creative-tim.com"> Creative Tim</a> and images from <a href="http://unsplash.com">Unsplash</a>.
+	                </div>
+		            </div>
+		        </div>
+		    </div>
+
+	</div>
+
 </body>
+
 
 <!--     #########################################################################################     -->
 
@@ -139,8 +203,10 @@
 				"<b>GPG: </b>" + obj.NotaryPart.signatures.GPG + "<br>" +
 				"<b>secp256k1: </b>" + obj.NotaryPart.signatures.secp256k1 + "<br>" + 
 				"<b>Escrow Multisignature Adress: </b>" + obj.NotaryPart.escrow_address + "<br>" + 
-				"<b>Escrow Multisignature Redemption Script: </b>" + obj.NotaryPart.escrow_redemption_address + "<br><br>"
-		;
+				"<b>Escrow Multisignature Redemption Script: </b>" + obj.NotaryPart.escrow_redemption_address + "<br><br>";
+
+		document.getElementById("itemTitle").innerHTML = obj.GenesisPart.item_data.item_title;
+		document.getElementById("itemDescription").innerHTML = obj.GenesisPart.item_data.item_condition;
 	}
 	</script>
 
@@ -151,6 +217,7 @@
 		document.getElementById("raw_contract").innerHTML = example;
 	}
 	</script>
+
 
 
 	<!--     Scripts for making the website look pretty     -->

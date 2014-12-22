@@ -31,23 +31,45 @@
 
 <body>
 
-	<div class="container">
-	<h1>OpenBazaar Contract Parser</h1>
-	<h3><b>This is how the Contract Parser works:</b></h3> 
-	<p>Paste in your raw JSON-formatted contract in here, and the JS will do the rest!</p>
+	<div class="blurred-container">
+	    <a href="https://openbazaar.org">
+	         <div class="logo-container">
+	            <div class="logo">
+	                <img src="assets/img/obcatlogo.png">
+	            </div>
+	            <div class="brand">
+	                OpenBazaar
+	            </div>
+	        </div>
+	    </a>
+	    <div class="motto">
+	        <div>Let's make</div>
+	        <div>Trade Free</div>
+	    </div>
+		<div class="img-src" style="background-image: url('assets/img/background4.jpg')"></div>
+		<div class="img-src blur" style="opacity: 0; background-image: url('assets/img/background4-blur.jpg');"></div>
 	</div>
 
-	<div class="container">
-	<textarea rows='12' class="form-control"  name="raw_contract" id="raw_contract"></textarea>
 
-	</br>
+	<div class="main">
+		<div class="container">
+		<h1>OpenBazaar Contract Parser</h1>
+		<h3><b>This is how the Contract Parser works:</b></h3> 
+		<p>Paste in your raw JSON-formatted contract in here, and the JS will do the rest!</p>
+		</div>
 
-	<button type="button" class="btn btn-block btn-lg btn-info" id="ParseButton" onclick="ParseContract()">Import</button>
+		<div class="container">
+		<textarea rows='12' class="form-control"  name="raw_contract" id="raw_contract"></textarea>
 
-	</br>
-	</br>
-	<p id="parseDump2"></p>
-	</div>
+		</br>
+
+		<button type="button" class="btn btn-primary`" id="ParseButton" onclick="ParseContract()">Import</button>
+
+		</br>
+		</br>
+		<p id="parseDump2"></p>
+		</div>
+		</div>
 	</div>
 
 </body>

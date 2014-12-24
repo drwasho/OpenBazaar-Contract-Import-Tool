@@ -18,4 +18,4 @@ OpenBazaar Contract Parser
 + Full set of standalone tools to be merged into repo
 
 ## Screenshots
-![0](https://github.com/drwasho/OpenBazaarContractParser/blob/master/Screenshot1.png)
+![0](https://github.com/drwasho/OpenBazaarContractParser/blob/master/Screenshot 1.png)

@@ -9,9 +9,9 @@
         "nonce": "somehashOfthis1contracT",
         "item_data": {
             "item_title": "some product",
-            "item_description": "This thing I'm selling is awesome.",
+            "item_description": "This thing I am selling is awesome.",
             "btcprice": "0.01",
-            "fiatprice": "$10",
+            "fiatprice": "10 dollars",
             "item_image": "someBase64imageHash",
             "item_condition": "some condition",
             "quantity": "some amount",
@@ -50,7 +50,7 @@
     },
     "EscrowPart": {
         "escrow_address": "somemultisigEscrowaddRess1234",
-        "escrow_redemption_address": "abc123432"
+        "escrow_redemption": "abc123432"
     }
 }
 

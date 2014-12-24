@@ -5,7 +5,7 @@
 
 <head>
 
-	<title>OpenBazaar Contract Parser</title>
+	<title>OpenBazaar Contract Import Tool</title>
 	
 	<!--     MetaData     -->
 	<meta charset="utf-8" />
@@ -63,11 +63,22 @@
 		
 		<!--     Introductory Stuff     -->
 		<div class="container">
-			<h1>OpenBazaar Contract Parser</h1>
-			<h3><b>This is how the Contract Parser works:</b></h3> 
-			<p>Paste in your raw JSON-formatted contract below, press 'Import', and the JS will do the rest!</p>
+			<h1><i>OpenBazaar</i> Contract Import Tool</h1>
+			<h1><small class="subtitle">This is how it works:</small></h1> 
+			
+			<div class="row" style="padding-left:50px;">
+				<p><i>OpenBazaar</i> Ricardian Contracts are formatted in JSON, but this can be difficult for ordinary folk to read. This tool imports the raw contract and transforms it into an easy-to-understand format. Paste in your raw JSON-formatted contract below and press 'Import'.</p>
+			</div>
+
+
+			<div class="row" style="padding-left:50px;">
+				<p>This tool isn't compatible with contracts used in the current client. Rather, this tool is to test out the <a href="https://gist.github.com/drwasho/09b3e0a1187476ca5d2a">new schema</a> we've designed for the <i>OpenBazaar</i> Ricardian Contracts. You can press the 'Example' button to see what this looks like in it's raw form before importing it.</p>
+			</div>
 		</div>
 
+	<!--     ______________________________________________________________________________________     -->
+
+		<!--     MAIN AREA     -->
 		<div class="container">
 			
 			<!--     Text area we paste the contract in     -->
@@ -82,34 +93,395 @@
 	                <button type="button" class="btn btn-primary btn-tooltip" data-toggle="tooltip" data-placement="bottom" title="Converts scary JSON into something beautiful" id="ParseButton" onclick="ParseContract()">Import</button>
 	            </div>
 	        </div>
-	        <button type="button" class="btn btn-primary" id="ModalPop" onclick="">Modal test</button>
 			</br>
-			</br>
+
+			<!--     Divider     -->
 			<hr class="featurette-divider">
+
+	<!--     ______________________________________________________________________________________     -->
+
+			<!--     ####  CONTRACT DATA DUMPS HERE  ####     -->
 			
-			<!--     Where the javascript outputs goes     -->
 			<div class="row">
-				<div class="col-md-8">
-					<h1 id="itemTitle">Item Title</h1>
+				<div class="col-md-9">
+					<img src="assets/img/header.png" style="max-width:100%;height:auto;">
 				</div>
-			</br>
-			<div class="row">
-				<div class="col-md-6">
-                    <h4>Image</h4>
-                    <img src="assets/img/obcatlogo.png" alt="Circle Image" class="img-thumbnail" width="400px">
-                </div>
-                <div class="col-md-6">
-                	<h4>Description</h4>
-                	<p id="itemDescription"></p>
-               	</div>
 			</div>
-			<p id="parseDump2"></p>
-			<p id="parseDump3"></p>
+
+			<!--     ###  Accordion  ###     -->
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				
+				<div class="panel panel-default">
+				  	
+				  	<!--     ##  Contract Metadata  ##     -->  
+				    <div class="panel-heading" role="tab" id="headingOne">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<h2>Contract Metadata</h2>
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				    	<div class="panel-body">
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>OpenBazaar Contract Version:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="OBCv"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Contract Category:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="contractCategory"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Contract Subcategory:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="categorySub"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Contract Expiry Date:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="categoryExpiry"></p>
+				      			</div>
+				      		</div>
+
+				    	</div>
+				    </div>
+
+				  	<!--     ##  Item Data  ##     -->  
+					<div class="panel-heading" role="tab" id="headingTwo">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+				          <h2>Item</h2>
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+				    	<div class="panel-body">
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Title:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemTitle"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Description:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemDescription"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Price (Bitcoin):</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemBTC"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Price (Fiat):</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemFiat"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Condition:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemCondition"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Quantity:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemQuantity"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Keywords:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemKeywords"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Region:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemRegion"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Delivery:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemDelivery"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Shipping Fee:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="itemShippingfee"></p>
+				      			</div>
+				      		</div>
+
+				    	</div>
+				    </div>
+
+					<!--     ##  Merchant Data  ##     -->  
+					<div class="panel-heading" role="tab" id="headingThree">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+				          <h2>Merchant</h2>
+				        </a>
+				      </h4>
+				    </div>
+				    
+				    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+				    	<div class="panel-body">
+				      		
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Merchant ID:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="merchantID"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Signatures:</b></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>Hash:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="merchantHash"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>GPG:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="merchantGPG"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>EC:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="merchantEC"></p>
+				      			</div>
+				      		</div>
+
+				    	</div>
+				    </div>
+
+					<!--     ##  Buyer Data  ##     -->  
+					<div class="panel-heading" role="tab" id="headingFour">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+				          <h2>Buyer</h2>
+				        </a>
+				      </h4>
+				    </div>
+				    
+				    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+				    	<div class="panel-body">
+				      		
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Buyer ID:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="buyerID"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Signatures:</b></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>Hash:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="buyerHash"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>GPG:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="buyerGPG"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>EC:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="buyerEC"></p>
+				      			</div>
+				      		</div>
+
+				    	</div>
+				    </div>
+
+					<!--     ##  Notary Data  ##     -->  
+					<div class="panel-heading" role="tab" id="headingFive">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+				          <h2>Notary</h2>
+				        </a>
+				      </h4>
+				    </div>
+				    
+				    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+				    	<div class="panel-body">
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Notary ID:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="notaryID"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>Hash:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="notaryHash"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>GPG:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="notaryGPG"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-1"></div>
+				      			<div class="col-md-3">
+				      				<p>EC:</p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="notaryEC"></p>
+				      			</div>
+				      		</div>
+
+				    	</div>
+				    </div>
+
+					<!--     ##  Escrow Payment Data  ##     -->  
+					<div class="panel-heading" role="tab" id="headingFive">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+				          <h2>Escrow Payment</h2>
+				        </a>
+				      </h4>
+				    </div>
+
+				    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+				    	<div class="panel-body">
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Escrow Address:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="escrowAddress"></p>
+				      			</div>
+				      		</div>
+
+				      		<div class="row">
+				      			<div class="col-md-4">
+				      				<p><b>Escrow Redemption Script:</b></p>
+				      			</div>
+				      			<div class="col-md-2">
+				      				<p id="escrowRedemption"></p>
+				      			</div>
+				      		</div>
+
+				      	</div>
+				    </div>
+
+				</div>
+
+			</div>
+
+			<!--     Blank space before the footer     -->
 			<div class="space-30"></div>
+
 		</div>
 	</div>
 
 
+	<!--     #### QUASI-FOOTER ####     -->
 	<div class="parallax-pro">
    	 
 	   	<img src="assets/img/background1.jpg">
@@ -155,7 +527,6 @@
 
 </body>
 
-
 <!--     #########################################################################################     -->
 
 	<!--     All the scripts     -->
@@ -165,55 +536,54 @@
 	function ParseContract() {
 		var varContract = document.getElementById("raw_contract").value;
 		var obj = JSON.parse(varContract);
-		
-		document.getElementById("parseDump2").innerHTML = 
-		"<h3>Genesis Part</h3>" +
-			"<h4>Metadata:</h4>" + 
-				"<b>OpenBazaar Contract Version: </b>" + obj.GenesisPart.metadata.OBCv + "<br>" +
-				"<b>Category: </b>" + obj.GenesisPart.metadata.Category + "<br>" +
-				"<b>Sub-category: </b>" + obj.GenesisPart.metadata.subCategory + "<br>" +
-				"<b>Expiration Date: </b>" + obj.GenesisPart.metadata.Expiration_Date + "<br>" + "<br>" +
-			"<h4>Item: </h4>" + 
-				"<b>Title: </b>" + obj.GenesisPart.item_data.item_title + "<br>" + 
-				"<b>Bitcoin Price: </b>" + obj.GenesisPart.item_data.btcprice + "<br>" + 
-				"<b>Fiat Price: </b>" + obj.GenesisPart.item_data.fiatprice + "<br>" + 
-				"<b>Image: </b>" + obj.GenesisPart.item_data.item_image + "<br>" + 
-				"<b>Condition: </b>" + obj.GenesisPart.item_data.item_condition + "<br>" + 
-				"<b>Quantity: </b>" + obj.GenesisPart.item_data.quantity + "<br>" + 
-				"<b>Keywords: </b>" + obj.GenesisPart.item_data.keywords.join(", ") + "<br>" + 
-				"<b>Region Available: </b>" + obj.GenesisPart.item_data.region + "<br>" + 
-				"<b>Estimated Delivery: </b>" + obj.GenesisPart.item_data.est_delivery + "<br>" + 
-				"<b>Shipping Fee: </b>" + obj.GenesisPart.item_data.shipping_fee + "<br><br>" +
-		"<h3>Merchant Part</h3>" +
-			"<h4>Merchant ID:</h4>" + 
-				"<b>Merchant GUID: </b>" + obj.MerchantPart.Merchant_ID + "<br>" +
-				"<b>Contract Part Hash: </b>" + obj.MerchantPart.signatures.Hash + "<br>" +
-				"<b>GPG: </b>" + obj.MerchantPart.signatures.GPG + "<br>" +
-				"<b>secp256k1: </b>" + obj.MerchantPart.signatures.secp256k1 + "<br>" + "<br><br>" +
-		"<h3>Buyer Part</h3>" +
-			"<h4>Buyer ID:</h4>" + 
-				"<b>Buyer GUID: </b>" + obj.BuyerPart.Buyer_ID + "<br>" +
-				"<b>Contract Part Hash: </b>" + obj.BuyerPart.signatures.Hash + "<br>" +
-				"<b>GPG: </b>" + obj.BuyerPart.signatures.GPG + "<br>" +
-				"<b>secp256k1: </b>" + obj.BuyerPart.signatures.secp256k1 + "<br>" + "<br><br>" +
-		"<h3>Notary Part</h3>" +
-			"<h4>Notary ID:</h4>" + 
-				"<b>Notary GUID: </b>" + obj.NotaryPart.Notary_ID + "<br>" +
-				"<b>Contract Part Hash: </b>" + obj.NotaryPart.signatures.Hash + "<br>" +
-				"<b>GPG: </b>" + obj.NotaryPart.signatures.GPG + "<br>" +
-				"<b>secp256k1: </b>" + obj.NotaryPart.signatures.secp256k1 + "<br>" + 
-				"<b>Escrow Multisignature Adress: </b>" + obj.NotaryPart.escrow_address + "<br>" + 
-				"<b>Escrow Multisignature Redemption Script: </b>" + obj.NotaryPart.escrow_redemption_address + "<br><br>";
 
+		// Contract Metadata
+		document.getElementById("OBCv").innerHTML = obj.GenesisPart.metadata.OBCv;
+		document.getElementById("contractCategory").innerHTML = obj.GenesisPart.metadata.Category;
+		document.getElementById("categorySub").innerHTML = obj.GenesisPart.metadata.subCategory;
+		document.getElementById("categoryExpiry").innerHTML = obj.GenesisPart.metadata.Expiration_Date;
+
+		// Item
 		document.getElementById("itemTitle").innerHTML = obj.GenesisPart.item_data.item_title;
-		document.getElementById("itemDescription").innerHTML = obj.GenesisPart.item_data.item_condition;
+		document.getElementById("itemDescription").innerHTML = obj.GenesisPart.item_data.item_description;
+		document.getElementById("itemBTC").innerHTML = obj.GenesisPart.item_data.btcprice;
+		document.getElementById("itemFiat").innerHTML = obj.GenesisPart.item_data.fiatprice;
+		document.getElementById("itemCondition").innerHTML = obj.GenesisPart.item_data.item_condition;
+		document.getElementById("itemQuantity").innerHTML = obj.GenesisPart.item_data.quantity;
+		document.getElementById("itemKeywords").innerHTML = obj.GenesisPart.item_data.keywords.join(", ");
+		document.getElementById("itemRegion").innerHTML = obj.GenesisPart.item_data.region;
+		document.getElementById("itemDelivery").innerHTML = obj.GenesisPart.item_data.est_delivery;
+		document.getElementById("itemShippingfee").innerHTML = obj.GenesisPart.item_data.shipping_fee;
+		
+		// Merchant
+		document.getElementById("merchantID").innerHTML = obj.MerchantPart.Merchant_ID;
+		document.getElementById("merchantHash").innerHTML = obj.MerchantPart.signatures.Hash;
+		document.getElementById("merchantGPG").innerHTML = obj.MerchantPart.signatures.GPG;
+		document.getElementById("merchantEC").innerHTML = obj.MerchantPart.signatures.secp256k1;
+
+		// Buyer
+		document.getElementById("buyerID").innerHTML = obj.BuyerPart.Buyer_ID;
+		document.getElementById("buyerHash").innerHTML = obj.BuyerPart.signatures.Hash;
+		document.getElementById("buyerGPG").innerHTML = obj.BuyerPart.signatures.GPG;
+		document.getElementById("buyerEC").innerHTML = obj.BuyerPart.signatures.secp256k1;
+
+		// Notary
+		document.getElementById("notaryID").innerHTML = obj.NotaryPart.Notary_ID;
+		document.getElementById("notaryHash").innerHTML = obj.NotaryPart.signatures.Hash;
+		document.getElementById("notaryGPG").innerHTML = obj.NotaryPart.signatures.GPG;
+		document.getElementById("notaryEC").innerHTML = obj.NotaryPart.signatures.secp256k1;
+
+		// Payment Escrow
+		document.getElementById("escrowAddress").innerHTML = obj.EscrowPart.escrow_address;
+		document.getElementById("escrowRedemption").innerHTML = obj.EscrowPart.escrow_redemption;
+
 	}
 	</script>
 
 	<!--     Try Example Contract Script     -->
 	<script>
 	function TryContract() {
-		var example = '{ "GenesisPart": { "metadata": { "OBCv": "0.0.1", "Category": "some category", "subCategory": "some subCategory", "Expiration_Date": "MM/DD/YYY" }, "nonce": "somehashOfthis1contracT", "item_data": { "item_title": "some product", "btcprice": "0.01", "fiatprice": "$10", "item_image": "someBase64imageHash", "item_condition": "some condition", "quantity": "some amount", "keywords": [ "some", "keywords" ], "region": "some place", "est_delivery": "eventually", "shipping_fee": "none" } }, "MerchantPart": { "Merchant_ID": "some_seller", "signatures": { "Hash": "somehash12345", "GPG": "*************", "secp256k1": "someuncompressedPubKey" } }, "BuyerPart": { "Buyer_ID": "some_seller", "signatures": { "Hash": "somehash12345", "GPG": "*************", "secp256k1": "someuncompressedPubKey" } }, "NotaryPart": { "Notary_ID": "some_seller", "signatures": { "Hash": "somehash12345", "GPG": "*************", "secp256k1": "someuncompressedPubKey" }, "escrow_address": "somemultisigEscrowaddRess1234", "escrow_redemption_address": "abc123432" }}';
+		var example = '{"GenesisPart":{"metadata":{"OBCv":"0.0.2","Category":"somecategory","subCategory":"somesubCategory","Expiration_Date":"MM/DD/YYY"},"nonce":"somehashOfthis1contracT","item_data":{"item_title":"someproduct","item_description":"ThisthingIamsellingisawesome.","btcprice":"0.01","fiatprice":"10dollars","item_image":"someBase64imageHash","item_condition":"somecondition","quantity":"someamount","keywords":["some","keywords"],"region":"someplace","est_delivery":"eventually","shipping_fee":"none"}},"MerchantPart":{"Merchant_ID":"some_merchant","signatures":{"Hash":"somehash12345","GPG":"*************","secp256k1":"someuncompressedPubKey"}},"BuyerPart":{"Buyer_ID":"some_buyer","signatures":{"Hash":"somehash12345","GPG":"*************","secp256k1":"someuncompressedPubKey"}},"NotaryPart":{"Notary_ID":"some_notary","signatures":{"Hash":"somehash12345","GPG":"*************","secp256k1":"someuncompressedPubKey"}},"EscrowPart":{"escrow_address":"somemultisigEscrowaddRess1234","escrow_redemption_address":"abc123432"}}';
 		document.getElementById("raw_contract").innerHTML = example;
 	}
 	</script>

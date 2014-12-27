@@ -61,11 +61,24 @@
     background-color: #FFFFFF;
 }
 .navigation-example{
-    height: 660px;
-    background-image: url('../img/bg.jpg');
-    background-position: center center;
+    height: 600px;
+    background-image: url('../img/background4.jpg');
+    background-position: center bottom;
     background-size: cover;
     position: relative;
+}
+.navigation-title{
+    color: #FFFFFF;
+    font-size: 64px;
+    font-weight: 600;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    z-index: 3;
+    margin: 0 auto;
+    top: 22%;
+    width: 500px;
 }
 #notifications{
     background-color: #FFFFFF;

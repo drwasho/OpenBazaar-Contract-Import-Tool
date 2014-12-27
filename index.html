@@ -42,32 +42,58 @@
 
 <body>
 
-	<!--     Pretty header thing     -->
-	<div class="blurred-container">
-	    
-	    <!--     Logo bit     -->
-	    <a href="https://openbazaar.org">
-	         <div class="logo-container">
-	            <div class="logo">
-	                <img src="assets/img/obcatlogo.png">
-	            </div>
-	            <div class="brand">
-	                OpenBazaar
-	            </div>
-	        </div>
-	    </a>
-	    
+   
 	    <!--     Text in the header thing     -->
-	    <div class="motto">
-	        <div>Let's make</div>
-	        <div>Trade Free</div>
-	    </div>
-		
-	    <!--     Pretty background images     -->
-		<div class="img-src" style="background-image: url('assets/img/background4.jpg')"></div>
-		<div class="img-src blur" style="opacity: 0; background-image: url('assets/img/background4-blur.jpg');"></div>
+
+
+	<div id="navbar-full">
+		    <div id="navbar">
+		    	<div class="navigation-example">
+
+			         <nav class="navbar navbar-default navbar-transparent" role="navigation-demo">
+			          <div class="container">
+			            <!-- Brand and toggle get grouped for better mobile display -->
+			            <div class="navbar-header">
+			              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+			                <span class="sr-only">Toggle navigation</span>
+			                <span class="icon-bar"></span>
+			                <span class="icon-bar"></span>
+			                <span class="icon-bar"></span>
+			              </button>
+			              <a class="navbar-brand" href="#">OpenBazaar</a>
+			            </div>
+			        
+			            <!-- Collect the nav links, forms, and other content for toggling -->
+			            <div class="collapse navbar-collapse" id="navigation-example-2">
+			              <ul class="nav navbar-nav">
+			                <li class="dropdown">
+			                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+			                      <ul class="dropdown-menu">
+			                        <li><a href="#">Import Contract</a></li>
+			                        <li><a href="#">Create Contract</a></li>
+			                        <li class="divider"></li>
+			                        <li><a href="#">Key Manager</a></li>
+			                    </li>
+			                      </ul>
+			            </div><!-- /.navbar-collapse -->
+			          </div><!-- /.container-fluid -->
+
+			        <div class="navigation-title">
+			        	<div>Let's make</div>
+			        	<div>Trade Free</div>
+			        </div>
+
+			        </nav>        
+				</div>
+	    	</div><!--  end navbar -->
 
 	</div>
+
+	
+	<!--     Navigation Bar     -->
+
+
+	<!--     ______________________________________________________________________________________     -->
 
 	<!--     ______________________________________________________________________________________     -->
 
@@ -75,7 +101,7 @@
 		
 		<!--     Introductory Stuff     -->
 		<div class="container">
-			<h1><i>OpenBazaar</i> Contract Import Tool</h1>
+			<h1><i>OpenBazaar</i> Contract Tools</h1>
 			<h1><small class="subtitle">This is how it works:</small></h1> 
 			
 			<div class="row" style="padding-left:50px;">
@@ -139,7 +165,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>OpenBazaar Contract Version:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="OBCv"></p>
 				      			</div>
 				      		</div>
@@ -148,7 +174,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Contract Category:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="contractCategory"></p>
 				      			</div>
 				      		</div>
@@ -157,7 +183,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Contract Subcategory:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="categorySub"></p>
 				      			</div>
 				      		</div>
@@ -166,7 +192,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Contract Expiry Date:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="categoryExpiry"></p>
 				      			</div>
 				      		</div>
@@ -188,7 +214,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Title:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemTitle"></p>
 				      			</div>
 				      		</div>
@@ -197,7 +223,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Description:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemDescription"></p>
 				      			</div>
 				      		</div>
@@ -206,7 +232,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Price (Bitcoin):</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemBTC"></p>
 				      			</div>
 				      		</div>
@@ -215,7 +241,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Price (Fiat):</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemFiat"></p>
 				      			</div>
 				      		</div>
@@ -224,7 +250,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Condition:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemCondition"></p>
 				      			</div>
 				      		</div>
@@ -233,7 +259,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Quantity:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemQuantity"></p>
 				      			</div>
 				      		</div>
@@ -242,7 +268,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Keywords:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemKeywords"></p>
 				      			</div>
 				      		</div>
@@ -251,7 +277,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Region:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemRegion"></p>
 				      			</div>
 				      		</div>
@@ -260,7 +286,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Delivery:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemDelivery"></p>
 				      			</div>
 				      		</div>
@@ -269,7 +295,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Shipping Fee:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="itemShippingfee"></p>
 				      			</div>
 				      		</div>
@@ -293,7 +319,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Merchant ID:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="merchantID"></p>
 				      			</div>
 				      		</div>
@@ -309,7 +335,7 @@
 				      			<div class="col-md-3">
 				      				<p>Hash:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="merchantHash"></p>
 				      			</div>
 				      		</div>
@@ -319,7 +345,7 @@
 				      			<div class="col-md-3">
 				      				<p>GPG:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="merchantGPG"></p>
 				      			</div>
 				      		</div>
@@ -329,7 +355,7 @@
 				      			<div class="col-md-3">
 				      				<p>EC:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="merchantEC"></p>
 				      			</div>
 				      		</div>
@@ -353,7 +379,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Buyer ID:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="buyerID"></p>
 				      			</div>
 				      		</div>
@@ -369,7 +395,7 @@
 				      			<div class="col-md-3">
 				      				<p>Hash:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="buyerHash"></p>
 				      			</div>
 				      		</div>
@@ -379,7 +405,7 @@
 				      			<div class="col-md-3">
 				      				<p>GPG:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="buyerGPG"></p>
 				      			</div>
 				      		</div>
@@ -389,7 +415,7 @@
 				      			<div class="col-md-3">
 				      				<p>EC:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="buyerEC"></p>
 				      			</div>
 				      		</div>
@@ -412,7 +438,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Notary ID:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="notaryID"></p>
 				      			</div>
 				      		</div>
@@ -422,7 +448,7 @@
 				      			<div class="col-md-3">
 				      				<p>Hash:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="notaryHash"></p>
 				      			</div>
 				      		</div>
@@ -432,7 +458,7 @@
 				      			<div class="col-md-3">
 				      				<p>GPG:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="notaryGPG"></p>
 				      			</div>
 				      		</div>
@@ -442,7 +468,7 @@
 				      			<div class="col-md-3">
 				      				<p>EC:</p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="notaryEC"></p>
 				      			</div>
 				      		</div>
@@ -465,7 +491,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Escrow Address:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="escrowAddress"></p>
 				      			</div>
 				      		</div>
@@ -474,7 +500,7 @@
 				      			<div class="col-md-4">
 				      				<p><b>Escrow Redemption Script:</b></p>
 				      			</div>
-				      			<div class="col-md-2">
+				      			<div class="col-md-4">
 				      				<p id="escrowRedemption"></p>
 				      			</div>
 				      		</div>
@@ -595,7 +621,7 @@
 	<!--     Try Example Contract Script     -->
 	<script>
 	function TryContract() {
-		var example = '{"GenesisPart":{"metadata":{"OBCv":"0.0.2","Category":"somecategory","subCategory":"somesubCategory","Expiration_Date":"MM/DD/YYY"},"nonce":"somehashOfthis1contracT","item_data":{"item_title":"someproduct","item_description":"ThisthingIamsellingisawesome.","btcprice":"0.01","fiatprice":"10 dollars","item_image":"someBase64imageHash","item_condition":"somecondition","quantity":"someamount","keywords":["some","keywords"],"region":"someplace","est_delivery":"eventually","shipping_fee":"none"}},"MerchantPart":{"Merchant_ID":"some_merchant","signatures":{"Hash":"somehash12345","GPG":"*************","secp256k1":"someuncompressedPubKey"}},"BuyerPart":{"Buyer_ID":"some_buyer","signatures":{"Hash":"somehash12345","GPG":"*************","secp256k1":"someuncompressedPubKey"}},"NotaryPart":{"Notary_ID":"some_notary","signatures":{"Hash":"somehash12345","GPG":"*************","secp256k1":"someuncompressedPubKey"}},"EscrowPart":{"escrow_address":"somemultisigEscrowaddRess1234","escrow_redemption":"abc123432"}}';
+		var example = '{"GenesisPart":{"metadata":{"OBCv":"0.0.2","Category":"Physical Good","subCategory":"Class","Expiration_Date":"MM/DD/YYY"},"nonce":"Random Number","item_data":{"item_title":"Item Title","item_description":"This item I am selling is awesome.","btcprice":"0.01","fiatprice":"10 dollars","item_image":"Base 64 or link","item_condition":"Condition is good","quantity":"1","keywords":["some","keywords"],"region":"someplace","est_delivery":"eventually","shipping_fee":"none"}},"MerchantPart":{"Merchant_ID":"Merchant GUID","signatures":{"Hash":"Hash of Genesis Part","GPG":"Sig of Genesis Hash","secp256k1":"Sig of Genesis Hash"}},"BuyerPart":{"Buyer_ID":"Buyer GUID","signatures":{"Hash":"Hash of Merchant Part","GPG":"Sig of Merchant Hash","secp256k1":"Sig of Merchant Hash"}},"NotaryPart":{"Notary_ID":"Notary GUID","signatures":{"Hash":"Hash of Buyer Part","GPG":"Sig of Buyer Hash","secp256k1":"Sig of Buyer Hash"}},"EscrowPart":{"escrow_address":"Some multisig escrow address","escrow_redemption":"abc123432"}}';
 		document.getElementById("raw_contract").innerHTML = example;
 	}
 	</script>

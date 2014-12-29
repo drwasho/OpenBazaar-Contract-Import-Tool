@@ -1,641 +1,262 @@
 <!DOCTYPE html>
-<html>
-
-<!--     #########################################################################################     -->
-
+<html lang="en">
 <head>
-
-	
-	
-	<!--     MetaData     -->
-	<title>OpenBazaar Contract Import Tool</title>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	
-	<!-- Twitter Card -->
-	<meta name="description" content="OpenBazaar Contract Import Tool converts your JSON-formatted raw contract into something beautiful and easy to understand." />
-	<meta name="twitter:site" content="@drwasho">
-	<meta name="twitter:url" content="https://drwasho.github.io/OpenBazaar-Contract-Import-Tool/">
-	<meta name="twitter:card" content="summary_large_image">
-	<meta property="og:title" content="OpenBazaar Contract Import Tool">
-	<meta property="og:url" content="https://drwasho.github.io/OpenBazaar-Contract-Import-Tool/"/>
-	<meta property="og:image" content="http://s1.postimg.org/xr6w3j4y7/Screenshot1.png">
-	<meta property="og:description" content="OpenBazaar Contract Import Tool converts your JSON-formatted raw contract into something beautiful and easy to understand.">
-	<meta property="og:type" content="article" />
-
-	<!--     Stylesheets     -->
-    <link href="bootstrap3/css/bootstrap.css" rel="stylesheet" />
-	<link href="assets/css/get-shit-done.css" rel="stylesheet" />  
-    <link href="assets/css/demo.css" rel="stylesheet" /> 
-    
-    <!--     Font Awesome     -->
-    <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
-
-	<script>
-		$('.btn-tooltip').tooltip();
-	</script>
-
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>OpenBazaar</title>
+	<meta name="generator" content="Bootply" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link href="assets/css/styles.css" rel="stylesheet">
 </head>
-
-<!--     #########################################################################################     -->
 
 <body>
 
-   
-	    <!--     Text in the header thing     -->
-
-
-	<div id="navbar-full">
-		    <div id="navbar">
-		    	<div class="navigation-example">
-
-			         <nav class="navbar navbar-default navbar-transparent" role="navigation-demo">
-			          <div class="container">
-			            <!-- Brand and toggle get grouped for better mobile display -->
-			            <div class="navbar-header">
-			              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-			                <span class="sr-only">Toggle navigation</span>
-			                <span class="icon-bar"></span>
-			                <span class="icon-bar"></span>
-			                <span class="icon-bar"></span>
-			              </button>
-			              <a class="navbar-brand" href="#">OpenBazaar</a>
-			            </div>
-			        
-			            <!-- Collect the nav links, forms, and other content for toggling -->
-			            <div class="collapse navbar-collapse" id="navigation-example-2">
-			              <ul class="nav navbar-nav">
-			                <li class="dropdown">
-			                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
-			                      <ul class="dropdown-menu">
-			                        <li><a href="#">Import Contract</a></li>
-			                        <li><a href="#">Create Contract</a></li>
-			                        <li class="divider"></li>
-			                        <li><a href="#">Key Manager</a></li>
-			                    </li>
-			                      </ul>
-			            </div><!-- /.navbar-collapse -->
-			          </div><!-- /.container-fluid -->
-
-			        <div class="navigation-title">
-			        	<div>Let's make</div>
-			        	<div>Trade Free</div>
-			        </div>
-
-			        </nav>        
-				</div>
-	    	</div><!--  end navbar -->
-
-	</div>
-
-	
-	<!--     Navigation Bar     -->
-
-
-	<!--     ______________________________________________________________________________________     -->
-
-	<!--     ______________________________________________________________________________________     -->
-
-	<div class="main">
-		
-		<!--     Introductory Stuff     -->
-		<div class="container">
-			<h1><i>OpenBazaar</i> Contract Tools</h1>
-			<h1><small class="subtitle">This is how it works:</small></h1> 
-			
-			<div class="row" style="padding-left:50px;">
-				<p><i>OpenBazaar</i> Ricardian Contracts are formatted in JSON, but this can be difficult for ordinary folk to read. This tool imports the raw contract and transforms it into an easy-to-understand format. Paste in your raw JSON-formatted contract below and press 'Import'.</p>
-			</div>
-
-
-			<div class="row" style="padding-left:50px;">
-				<p>This tool isn't compatible with contracts used in the current client. Rather, this tool is to test out the <a href="https://gist.github.com/drwasho/09b3e0a1187476ca5d2a">new schema</a> we've designed for the <i>OpenBazaar</i> Ricardian Contracts. You can press the 'Example' button to see what this looks like in it's raw form before importing it.</p>
-			</div>
-		</div>
-
-	<!--     ______________________________________________________________________________________     -->
-
-		<!--     MAIN AREA     -->
-		<div class="container">
-			
-			<!--     Text area we paste the contract in     -->
-			<textarea rows='12' class="form-control"  name="raw_contract" id="raw_contract"></textarea>
-			
-			<!--     Buttons     -->
-			<div class="row tim-row" id="display-buttons" data-class="btn-info">
-	            <div class="col-md-1">
-	                <button type="button" class="btn btn-warning" id="TryButton" onclick="TryContract()">Example</button>
-	            </div>
-	            <div class="col-md-1">
-	                <button type="button" class="btn btn-primary btn-tooltip" data-toggle="tooltip" data-placement="bottom" title="Converts scary JSON into something beautiful" id="ParseButton" onclick="ParseContract()">Import</button>
-	            </div>
-	        </div>
-			</br>
-
-			<!--     Divider     -->
-			<hr class="featurette-divider">
-
-	<!--     ______________________________________________________________________________________     -->
-
-			<!--     ####  CONTRACT DATA DUMPS HERE  ####     -->
-			
-			<div class="row">
-				<div class="col-md-9">
-					<img src="assets/img/header.png" style="max-width:100%;height:auto;">
-				</div>
-			</div>
-
-			<!--     ###  Accordion  ###     -->
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-				
-				<div class="panel panel-default">
-				  	
-				  	<!--     ##  Contract Metadata  ##     -->  
-				    <div class="panel-heading" role="tab" id="headingOne">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-							<h2>Contract Metadata</h2>
-				        </a>
-				      </h4>
-				    </div>
-				    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-				    	<div class="panel-body">
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>OpenBazaar Contract Version:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="OBCv"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Contract Category:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="contractCategory"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Contract Subcategory:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="categorySub"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Contract Expiry Date:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="categoryExpiry"></p>
-				      			</div>
-				      		</div>
-
-				    	</div>
-				    </div>
-
-				  	<!--     ##  Item Data  ##     -->  
-					<div class="panel-heading" role="tab" id="headingTwo">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-				          <h2>Item</h2>
-				        </a>
-				      </h4>
-				    </div>
-				    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-				    	<div class="panel-body">
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Title:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemTitle"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Description:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemDescription"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Price (Bitcoin):</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemBTC"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Price (Fiat):</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemFiat"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Condition:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemCondition"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Quantity:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemQuantity"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Keywords:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemKeywords"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Region:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemRegion"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Delivery:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemDelivery"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Shipping Fee:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="itemShippingfee"></p>
-				      			</div>
-				      		</div>
-
-				    	</div>
-				    </div>
-
-					<!--     ##  Merchant Data  ##     -->  
-					<div class="panel-heading" role="tab" id="headingThree">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-				          <h2>Merchant</h2>
-				        </a>
-				      </h4>
-				    </div>
-				    
-				    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-				    	<div class="panel-body">
-				      		
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Merchant ID:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="merchantID"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Signatures:</b></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>Hash:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="merchantHash"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>GPG:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="merchantGPG"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>EC:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="merchantEC"></p>
-				      			</div>
-				      		</div>
-
-				    	</div>
-				    </div>
-
-					<!--     ##  Buyer Data  ##     -->  
-					<div class="panel-heading" role="tab" id="headingFour">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-				          <h2>Buyer</h2>
-				        </a>
-				      </h4>
-				    </div>
-				    
-				    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
-				    	<div class="panel-body">
-				      		
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Buyer ID:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="buyerID"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Signatures:</b></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>Hash:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="buyerHash"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>GPG:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="buyerGPG"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>EC:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="buyerEC"></p>
-				      			</div>
-				      		</div>
-
-				    	</div>
-				    </div>
-
-					<!--     ##  Notary Data  ##     -->  
-					<div class="panel-heading" role="tab" id="headingFive">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-				          <h2>Notary</h2>
-				        </a>
-				      </h4>
-				    </div>
-				    
-				    <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
-				    	<div class="panel-body">
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Notary ID:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="notaryID"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>Hash:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="notaryHash"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>GPG:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="notaryGPG"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-1"></div>
-				      			<div class="col-md-3">
-				      				<p>EC:</p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="notaryEC"></p>
-				      			</div>
-				      		</div>
-
-				    	</div>
-				    </div>
-
-					<!--     ##  Escrow Payment Data  ##     -->  
-					<div class="panel-heading" role="tab" id="headingSix">
-				      <h4 class="panel-title">
-				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-				          <h2>Escrow Payment</h2>
-				        </a>
-				      </h4>
-				    </div>
-
-				    <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
-				    	<div class="panel-body">
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Escrow Address:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="escrowAddress"></p>
-				      			</div>
-				      		</div>
-
-				      		<div class="row">
-				      			<div class="col-md-4">
-				      				<p><b>Escrow Redemption Script:</b></p>
-				      			</div>
-				      			<div class="col-md-4">
-				      				<p id="escrowRedemption"></p>
-				      			</div>
-				      		</div>
-
-				      	</div>
-				    </div>
-
-				</div>
-
-			</div>
-
-			<!--     Blank space before the footer     -->
-			<div class="space-30"></div>
-
-		</div>
-	</div>
-
-
-	<!--     #### QUASI-FOOTER ####     -->
-	<div class="parallax-pro">
-   	 
-	   	<img src="assets/img/background1.jpg">
-	    
-	    <div class="container">
-	        
-	        <div class="row">
-	            <div class="col-md-12 text-center">
-	                <h1>
-	                    <small>
-	                        Our Project:<a>
-	                    </a></small><a>
-	                </a></h1><a>
-	            </a></div><a>
-
-	            </a><div class="col-md-6 col-md-offset-3 text-center"><a>
-	                </a><h1 class="hello text-center"><a>
-	                   </a><a href="https://openbazaar.org">OpenBazaar</a>
-	                   <small>
-	                    <ul class="list-unstyled">
-	                        <li><a href="https://github.com/OpenBazaar/OpenBazaar">Github</a</li>
-	                        <li><a href="https://blog.openbazaar.org">Blog</a></li>
-	                        <li><a href="https://tip4commit.com/github/OpenBazaar/OpenBazaar">Tip4Commit</a></li>
-	                        <li><a href="mailto:project@openbazaar.org">Email</a></li>
-	                    </ul>
-	                    </small>
-	                </h1>
-	            </div>
-	        </div>
-	        
-
-	       
-	        <div class="row">
-	             <div class="col-md-12 text-center">
-	                <div class="credits">
-	                    Website made using Get S*** Done Kit by <a href="http://creative-tim.com"> Creative Tim</a> and images from <a href="http://unsplash.com">Unsplash</a>.
-	                </div>
-		            </div>
-		        </div>
-		    </div>
-
-	</div>
+
+
+    <!-- ############## Template ############## -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">OpenBazaar</a>
+            </div>
+            <div class="collapse navbar-collapse" style="">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="" style="">Home</a>
+
+                    </li>
+                    <li><a href="#" class="">Explore</a>
+
+                    </li>
+                    <li><a href="#" class="">Sell</a>
+
+                    </li>
+                    <li class="active"><a href="#" class="">Import</a>
+
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <!-- ##############   Body   ############## -->
+    <div class="container">
+        <div class="col-md-12">
+            <div class="center-block text-center">
+                <h1>OpenBazaar</h1>
+                <p class="lead">Let's make trade free</p>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    ############################
+    ############################    Contract Dump
+    ############################
+    ############################
+    -->
+
+
+    <!-- ##################################### -->
+        <!-- Modal -->
+            <!-- Large modal -->
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">OpenBazaar Ricardian Contract</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Paste in the raw contract below</p>
+                            <textarea rows='6' class="form-control"  name="raw_contract" id="raw_contract"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" onclick="TryContract()">Example Contract</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="ParseContract(); get_image();" data-dismiss="modal">Import</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    <!-- ##################################### -->
+
+    <!-- Image of the item -->
+
+    <div class="container">
+        <div class="menu row">
+
+            <div class="product col-sm-6">
+                <a href="#"><img class="img-responsive" src="assets/img/ec_guy.jpg" style="border:1px solid black" id="default-img"></a>
+                <hr class="featurette-divider">
+                <h2 id="itemTitle">Denim Jacket</h2>
+                <p id="itemDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</p>
+                <p id="itemCondition"><b>Condition: </b></p>
+                <p id="itemKeywords"><b>Keywords: </b></p>
+                <p id="itemRegion"><b>Region: </b></p>
+                <p id="itemDelivery"><b>Est. delivery: </b></p>
+                <p id="itemShippingfee"><b>Shipping fee: </b></p>
+                <hr class="featurette-divider">
+                <h3>Price</h3>
+                <h3 class="text-right" id="itemBTC">0.04 BTC</h3>
+                <h5 class="text-right" id="itemFiat">$10</h5>
+                <p id="escrowAddress"><b>Multisig address: </b></p>
+                <p id="escrowRedemption"><b>Redemption script: </b></p>
+                </br>
+                </br>
+                <button class="btn btn-default btn-lg " data-toggle="modal" data-target=".bs-example-modal-lg">Import Contract</button>
+                <hr>
+            </div>    
+
+            <div class="product col-sm-6">
+                <div class="productsrow">
+
+                    <div class="product menu-category">
+                        <div class="menu-category-name list-group-item active"><h4>Merchant</h4></div>
+                        <div class="menu-category-name list-group-item active">
+                            <b><p id="merchantID">Merchant ID</p></b>
+                            <p class="well" id="merchantPGPKey">PGP key goes here</p>
+                            <p class="well" id="merchantECKey">EC key goes here</p>
+                        </div>
+                        <a href="#" class="menu-item list-group-item"><b>Verify</b><span class="badge"></span></a>
+                    </div>
+
+                    <div class="product menu-category">
+                        <div class="menu-category-name list-group-item active"><h4>Buyer</h4></div>
+                        <div class="menu-category-name list-group-item active">
+                            <b><p id="buyerID">Buyer ID</p></b>
+                            <p class="well" id="buyerPGPKey">PGP key goes here</p>
+                            <p class="well" id="buyerECKey">EC key goes here</p>
+                        </div>
+                        <a href="#" class="menu-item list-group-item"><b>Verify</b><span class="badge"></span></a>
+                    </div>
+
+                    <div class="product menu-category">
+                        <div class="menu-category-name list-group-item active"><h4>Notary</h4></div>
+                        <div class="menu-category-name list-group-item active">
+                            <b><p id="notaryID">Notary ID</p></b>
+                            <p class="well" id="notaryPGPKey">PGP key goes here</p>
+                            <p class="well" id="notaryECKey">EC key goes here</p>
+                        </div>
+                        <a href="#" class="menu-item list-group-item"><b>Verify</b><span class="badge"></span></a>
+                    </div>
+
+                    <div class="product menu-category">
+                        <div class="menu-category-name list-group-item active"><h4>Metadata</h4></div>
+                        <div class="menu-category-name list-group-item active">
+                            <p id="OBCv">               <b>Version: </b>    </p>
+                            <p id="contractCategory">   <b>Category: </b>   </p>
+                            <p id="categorySub">        <b>Type: </b>       </p>
+                            <p id="contractExpiry">     <b>Expires: </b>    </p>
+                        </div>
+                        <a href="#" class="menu-item list-group-item"><b>Verify</b><span class="badge"></span></a>
+                    </div>
+
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <!--spacer-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br></br>
+            </div>
+        </div>
+    </div>
+
+<!--     Contract Import Script     -->
+<script>
+function ParseContract() {
+    var varContract = document.getElementById("raw_contract").value;
+    var obj = JSON.parse(varContract);
+
+    // Contract Metadata
+    document.getElementById("OBCv").innerHTML = "<b>Version: </b>" + obj.GenesisPart.metadata.OBCv;
+    document.getElementById("contractCategory").innerHTML = "<b>Category: </b>" + obj.GenesisPart.metadata.Category;
+    document.getElementById("categorySub").innerHTML = "<b>Type: </b>" + obj.GenesisPart.metadata.subCategory;
+    document.getElementById("contractExpiry").innerHTML = "<b>Expires: </b>" + obj.GenesisPart.metadata.Expiration_Date;
+
+    // Item
+    document.getElementById("itemTitle").innerHTML = obj.GenesisPart.item_data.item_title;
+    document.getElementById("itemDescription").innerHTML = obj.GenesisPart.item_data.item_description;
+    document.getElementById("itemBTC").innerHTML = obj.GenesisPart.item_data.btcprice + " BTC";
+    document.getElementById("itemFiat").innerHTML = obj.GenesisPart.item_data.fiatprice;
+    document.getElementById("itemCondition").innerHTML = "<b>Condition: </b>" + obj.GenesisPart.item_data.item_condition;
+    document.getElementById("itemKeywords").innerHTML = "<b>Keywords: </b>" + obj.GenesisPart.item_data.keywords.join(", ");
+    document.getElementById("itemRegion").innerHTML = "<b>Region: </b>" + obj.GenesisPart.item_data.region;
+    document.getElementById("itemDelivery").innerHTML = "<b>Est. delivery: </b>" + obj.GenesisPart.item_data.est_delivery;
+    document.getElementById("itemShippingfee").innerHTML = "<b>Shipping fee: </b>" + obj.GenesisPart.item_data.shipping_fee;
+    
+    // Merchant
+    document.getElementById("merchantID").innerHTML = obj.MerchantPart.Merchant_ID;
+    document.getElementById("merchantPGPKey").innerHTML = obj.MerchantPart.Merchant_PGP_Key;
+    document.getElementById("merchantECKey").innerHTML = obj.MerchantPart.Merchant_EC_Key;
+
+    // Buyer
+    document.getElementById("buyerID").innerHTML = obj.BuyerPart.Buyer_ID;
+    document.getElementById("buyerPGPKey").innerHTML = obj.BuyerPart.Buyer_PGP_Key;
+    document.getElementById("buyerECKey").innerHTML = obj.BuyerPart.Buyer_EC_Key;
+
+    // Notary
+    document.getElementById("notaryID").innerHTML = obj.NotaryPart.Notary_ID;
+    document.getElementById("notaryPGPKey").innerHTML = obj.NotaryPart.Notary_PGP_Key;
+    document.getElementById("notaryECKey").innerHTML = obj.NotaryPart.Notary_EC_Key;
+
+    // Payment Escrow
+    document.getElementById("escrowAddress").innerHTML = "<b>Multisignature Address: </b>" + obj.EscrowPart.escrow_address;
+    document.getElementById("escrowRedemption").innerHTML = "<b>Redemption Script: </b>" + obj.EscrowPart.escrow_redemption;
+
+}
+</script>
+
+<!-- Script: Replace main image with image in the contract -->
+<script>
+    function get_image() {
+        var varContract = document.getElementById("raw_contract").value;
+        var obj = JSON.parse(varContract);
+        var src = obj.GenesisPart.item_data.item_image;
+        show_image(obj.GenesisPart.item_data.item_image);
+  }
+
+  function show_image(src){
+      var img = document.getElementById("default-img");
+      img.src = src;
+
+      // This next line will just add it to the <body> tag
+      document.getElementById("default-img"); 
+    }
+</script>
+
+
+<!--     Try Example Contract Script     -->
+<script>
+function TryContract() {
+    var example = '{"GenesisPart":{"metadata":{"OBCv":"0.0.2","Category":"Physical Good","subCategory":"Fixed Price","Expiration_Date":"05/22/10"},"nonce":"2083236893","item_data":{"item_title":"Dominos Pizza", "item_description":"I will pay 10,000 bitcoins for a couple of pizzas.. like maybe 2 large ones so I have some left over for the next day. I like having left over pizza to nibble on later. You can make the pizza yourself and bring it to my house or order it for me from a delivery place, but what I am aiming for is getting food delivered in exchange for bitcoins where I do not have to order or prepare it myself, kind of like ordering a breakfast platter at a hotel or something, they just bring you something to eat and you are happy. I like things like onions, peppers, sausage, mushrooms, tomatoes, pepperoni, etc.. just standard stuff no weird fish topping or anything like that.  I also like regular cheese pizzas which may be cheaper to prepare or otherwise acquire.","btcprice":"10,000","fiatprice":"$41 USD","item_image":"https://i.imgur.com/L6l7oUW.jpg","item_condition":"Condition is good","quantity":"2","keywords":["pizza","bitcoin"],"region":"Jacksonville, Florida","est_delivery":"3 days","shipping_fee":"none"}},"MerchantPart":{"Merchant_ID":"Dominos", "Merchant_PGP_Key":"PGP Key", "Merchant_EC_Key":"EC Key", "signatures":{"Hash":"Hash of Genesis Part","PGP_sig":"Sig of Genesis Hash","secp256k1_sig":"Sig of Genesis Hash"}},"BuyerPart":{"Buyer_ID":"Laszlo", "Buyer_PGP_Key":"PGP Key", "Buyer_EC_Key":"EC Key", "signatures":{"Hash":"Hash of Merchant Part","PGP_sig":"Sig of Merchant Hash","secp256k1_sig":"Sig of Merchant Hash"}},"NotaryPart":{"Notary_ID":"Jercos", "Notary_PGP_Key":"PGP Key", "Notary_EC_Key":"EC Key", "signatures":{"Hash":"Hash of Buyer Part","PGP_sig":"Sig of Buyer Hash","secp256k1_sig":"Sig of Buyer Hash"}},"EscrowPart":{"escrow_address":"3MXYUBLWNETa5HTewZp1xMTt7AW9kbFNqs","escrow_redemption":"abc123432"}}';
+    document.getElementById("raw_contract").innerHTML = example;
+}
+</script>
+
+<!-- script references -->
+<script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="jquery/jquery-ui.custom.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 
 </body>
-
-<!--     #########################################################################################     -->
-
-	<!--     All the scripts     -->
-
-	<!--     Contract Import Script     -->
-	<script>
-	function ParseContract() {
-		var varContract = document.getElementById("raw_contract").value;
-		var obj = JSON.parse(varContract);
-
-		// Contract Metadata
-		document.getElementById("OBCv").innerHTML = obj.GenesisPart.metadata.OBCv;
-		document.getElementById("contractCategory").innerHTML = obj.GenesisPart.metadata.Category;
-		document.getElementById("categorySub").innerHTML = obj.GenesisPart.metadata.subCategory;
-		document.getElementById("categoryExpiry").innerHTML = obj.GenesisPart.metadata.Expiration_Date;
-
-		// Item
-		document.getElementById("itemTitle").innerHTML = obj.GenesisPart.item_data.item_title;
-		document.getElementById("itemDescription").innerHTML = obj.GenesisPart.item_data.item_description;
-		document.getElementById("itemBTC").innerHTML = obj.GenesisPart.item_data.btcprice;
-		document.getElementById("itemFiat").innerHTML = obj.GenesisPart.item_data.fiatprice;
-		document.getElementById("itemCondition").innerHTML = obj.GenesisPart.item_data.item_condition;
-		document.getElementById("itemQuantity").innerHTML = obj.GenesisPart.item_data.quantity;
-		document.getElementById("itemKeywords").innerHTML = obj.GenesisPart.item_data.keywords.join(", ");
-		document.getElementById("itemRegion").innerHTML = obj.GenesisPart.item_data.region;
-		document.getElementById("itemDelivery").innerHTML = obj.GenesisPart.item_data.est_delivery;
-		document.getElementById("itemShippingfee").innerHTML = obj.GenesisPart.item_data.shipping_fee;
-		
-		// Merchant
-		document.getElementById("merchantID").innerHTML = obj.MerchantPart.Merchant_ID;
-		document.getElementById("merchantHash").innerHTML = obj.MerchantPart.signatures.Hash;
-		document.getElementById("merchantGPG").innerHTML = obj.MerchantPart.signatures.GPG;
-		document.getElementById("merchantEC").innerHTML = obj.MerchantPart.signatures.secp256k1;
-
-		// Buyer
-		document.getElementById("buyerID").innerHTML = obj.BuyerPart.Buyer_ID;
-		document.getElementById("buyerHash").innerHTML = obj.BuyerPart.signatures.Hash;
-		document.getElementById("buyerGPG").innerHTML = obj.BuyerPart.signatures.GPG;
-		document.getElementById("buyerEC").innerHTML = obj.BuyerPart.signatures.secp256k1;
-
-		// Notary
-		document.getElementById("notaryID").innerHTML = obj.NotaryPart.Notary_ID;
-		document.getElementById("notaryHash").innerHTML = obj.NotaryPart.signatures.Hash;
-		document.getElementById("notaryGPG").innerHTML = obj.NotaryPart.signatures.GPG;
-		document.getElementById("notaryEC").innerHTML = obj.NotaryPart.signatures.secp256k1;
-
-		// Payment Escrow
-		document.getElementById("escrowAddress").innerHTML = obj.EscrowPart.escrow_address;
-		document.getElementById("escrowRedemption").innerHTML = obj.EscrowPart.escrow_redemption;
-
-	}
-	</script>
-
-	<!--     Try Example Contract Script     -->
-	<script>
-	function TryContract() {
-		var example = '{"GenesisPart":{"metadata":{"OBCv":"0.0.2","Category":"Physical Good","subCategory":"Class","Expiration_Date":"MM/DD/YYY"},"nonce":"Random Number","item_data":{"item_title":"Item Title","item_description":"This item I am selling is awesome.","btcprice":"0.01","fiatprice":"10 dollars","item_image":"Base 64 or link","item_condition":"Condition is good","quantity":"1","keywords":["some","keywords"],"region":"someplace","est_delivery":"eventually","shipping_fee":"none"}},"MerchantPart":{"Merchant_ID":"Merchant GUID","signatures":{"Hash":"Hash of Genesis Part","GPG":"Sig of Genesis Hash","secp256k1":"Sig of Genesis Hash"}},"BuyerPart":{"Buyer_ID":"Buyer GUID","signatures":{"Hash":"Hash of Merchant Part","GPG":"Sig of Merchant Hash","secp256k1":"Sig of Merchant Hash"}},"NotaryPart":{"Notary_ID":"Notary GUID","signatures":{"Hash":"Hash of Buyer Part","GPG":"Sig of Buyer Hash","secp256k1":"Sig of Buyer Hash"}},"EscrowPart":{"escrow_address":"Some multisig escrow address","escrow_redemption":"abc123432"}}';
-		document.getElementById("raw_contract").innerHTML = example;
-	}
-	</script>
+    <!--/template-->
 
 
-
-	<!--     Scripts for making the website look pretty     -->
-    <script src="jquery/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-	<script src="bootstrap3/js/bootstrap.js" type="text/javascript"></script>
-	<script src="assets/js/gsdk-checkbox.js"></script>
-	<script src="assets/js/gsdk-radio.js"></script>
-	<script src="assets/js/gsdk-bootstrapswitch.js"></script>
-	<script src="assets/js/get-shit-done.js"></script>
-    <script src="assets/js/custom.js"></script>
 
 </html>
